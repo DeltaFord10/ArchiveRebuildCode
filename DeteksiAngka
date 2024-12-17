@@ -11,10 +11,8 @@ public class DeteksiAngka {
                     ================
                     1. Deteksi Bilangan
                     0. Keluar Dari Program
-                    """);
-            System.out.print("Pilih Menu yang Ingin Diakses : ");
-            pilihan = input.nextInt();
-            System.out.println();
+                    Pilih Menu yang Ingin Diakses :\s
+                    """); pilihan = input.nextInt(); System.out.println();
 
             switch (pilihan) {
                 case 1:
