@@ -16,13 +16,10 @@ public class DeteksiAngka {
 
             switch (pilihan) {
                 case 1:
-                    infoAngka(input);
-                    break;
+                    infoAngka(input); break;
                 case 0:
-                    System.out.println("Terima Kasih Sudah Menggunakan Program Ini!");
-                    break;
-                default:
-                    System.out.println("Silahkan Pilih Menu yang Tersedia!"); }
+                    System.out.println("Terima Kasih Sudah Menggunakan Program Ini!"); break;
+                default: System.out.println("Silahkan Pilih Menu yang Tersedia!"); }
         } while (pilihan != 0);
     }
 
