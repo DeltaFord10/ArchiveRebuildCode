@@ -1,0 +1,88 @@
+import java.util.*;
+public class DeteksiAngka {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int pilihan;
+        do {
+            System.out.println("""
+                    
+                    ================
+                    Deteksi Bilangan
+                    ================
+                    1. Deteksi Bilangan
+                    0. Keluar Dari Program
+                    """);
+            System.out.print("Pilih Menu yang Ingin Diakses : ");
+            pilihan = input.nextInt();
+            System.out.println();
+
+            switch (pilihan) {
+                case 1:
+                    infoAngka(input);
+                    break;
+                case 0:
+                    System.out.println("Terima Kasih Sudah Menggunakan Program Ini!");
+                    break;
+                default:
+                    System.out.println("Silahkan Pilih Menu yang Tersedia!"); }
+        } while (pilihan != 0);
+    }
+
+    public static void infoAngka(Scanner input) {
+        System.out.print("Masukkan Angka yang Ingin Diperiksa : ");
+        double angka = input.nextDouble();
+        String status1, status2, status3, status4;
+        double formatAngka = 0;
+
+        status1 = (angka < 0) ? "Bilangan Negatif" : (angka == 0) ? "Bilangan Netral" : "Bilangan Positif";
+        status2 = (angka % 2 != 0) ? "Bilangan Ganjil" : "Bilangan Genap";
+        status3 = (angka == (Math.floor(angka))) ? "Bilangan Bulat" : "Bilangan Pecahan";
+        if (angka >= 2 && angka == (Math.floor(angka))) {
+            status4 = bilanganPrima(angka) ? "Bilangan Prima" : "Bilangan Non-Prima"; }
+        else {
+            status4 = "Bilangan Non-Prima"; }
+        System.out.println();
+        formatAngka = (angka == (Math.floor(angka))) ? (int) angka : angka;
+
+        if(angka==Math.floor(angka)){
+            System.out.printf("""
+                    Informasi Tentang Bilangan yang Diperiksa (%.0f) :
+                    """, formatAngka); }
+        else {
+            System.out.printf("""
+                    Informasi Tentang Bilangan yang Diperiksa (%.1f) :
+                    """, formatAngka); }
+
+        System.out.print(status1+""" 
+                , bertipe\s""" + status2 + """
+                , berbentuk\s""" + status3 + """
+                , dan termasuk\s""" + status4);
+
+        faktorAngka(angka);
+    }
+
+    public static boolean bilanganPrima(double angka) {
+        if (angka < 2) return false;
+        for (int i = 2; i <= Math.sqrt(angka); i++) {
+            if (angka % i == 0) return false; }
+        return true;
+    }
+
+    public static void faktorAngka(double angka) {
+        if(angka>0){
+            if(angka==Math.floor(angka)){
+                System.out.printf("\nFaktor-Faktor dari %.0f adalah : ",angka); }
+            else {
+                System.out.printf("\nFaktor-Faktor dari %.1f adalah : ", angka); } }
+        else {
+            if(angka==Math.floor(angka)){
+                System.out.printf("\nFaktor-Faktor dari %.0f adalah : ",angka); }
+            else {
+                System.out.printf("\nFaktor-Faktor dari %.1f adalah : ", angka); } }
+
+        for(int i=1; i<=angka; i++){
+            if(angka%i==0){ System.out.print(i);
+                if(i<angka) { System.out.print(", "); } } }
+        System.out.println();
+    }
+}
