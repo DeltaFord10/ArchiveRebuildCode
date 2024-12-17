@@ -116,7 +116,6 @@ public class GameTebakAngka {
                             System.out.println("Selamat, Angka Misteri Adalah, yaitu "+kunci); } }
                 } while(percobaan<2 && tebakan!=kunci); break;
             case 0 : break;
-            default :
-                System.out.println("Silahkan Pilih Menu yang Tersedia!"); }
+            default : System.out.println("Silahkan Pilih Menu yang Tersedia!"); }
     }
 }
