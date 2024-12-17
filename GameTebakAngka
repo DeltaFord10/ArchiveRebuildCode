@@ -1,0 +1,123 @@
+import java.util.*;
+public class GameTebakAngka {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int pilihan;
+        do {
+            System.out.println("""
+                    ========================
+                    Game Tebak Angka Misteri
+                    ========================
+                    1. Mulai Permainan
+                    0. Keluar dari Permainan
+                    """);
+            System.out.print("Pilih Menu yang Ingin Diakses : ");
+            pilihan = input.nextInt(); input.nextLine(); System.out.println();
+
+            switch (pilihan) {
+                case 1 : mode(input); break;
+                case 0 : System.out.println("Terima Kasih Sudah Bermain!"); break;
+                default :
+                    System.out.print("Silahkan Pilih Menu yang Tersedia!"); }
+            System.out.println();
+        } while (pilihan!=0);
+    }
+
+    public static void mode(Scanner input) {
+        int tebakan=0; int percobaan=0;
+        Random random = new Random(); int kunci = random.nextInt(100)+1;
+        System.out.println("""
+                1. Mulai Level Rendah
+                2. Mulai Level Sedang
+                3. Mulai Level Sulit
+                4. Mulai Level Extreme
+                0. Kembali ke Menu Utama
+                """);
+        System.out.print("Pilih Menu yang Ingin Diakses : ");
+        int menuMode = input.nextInt(); input.nextLine(); System.out.println();
+
+        switch (menuMode) {
+            case 1 :
+                do{
+                    System.out.print("Jumlah Percobaan Bebas, Silahkan Pilih Bilangan Bulat Antara 1-100 : ");
+                    tebakan = input.nextInt(); double akurasi; percobaan++;
+                    System.out.print("Percobaan ke-"+percobaan+" | ");
+                    if(tebakan-kunci<0){
+                        akurasi = ((double)tebakan/kunci)*100;
+                        System.out.printf("(%.4f%%) | ", akurasi);
+                        System.out.print("("+tebakan+" < ?) \n"); }
+                    else if(tebakan-kunci>0){
+                        akurasi = ((double)kunci/tebakan)*100;
+                        System.out.printf("(%.4f%%) | ", akurasi);
+                        System.out.print("("+tebakan+" > ?) \n"); }
+                    else {
+                        System.out.println("Selamat, Angka Misteri Sudah Ditemukan, yaitu "+kunci); }
+                } while(tebakan!=kunci); break;
+            case 2 :
+                do {
+                    System.out.print("Batas Percobaan : 5, Silahkan Pilih Bilangan Bulat Antara 1-100 : ");
+                    tebakan = input.nextInt(); double akurasi; percobaan++;
+                    System.out.print("Percobaan "+percobaan+"/5 | ");
+                    if(percobaan<=5){
+                        if(tebakan-kunci<0){
+                            akurasi = ((double)tebakan/kunci)*100;
+                            System.out.printf("(%.4f%%) | ", akurasi);
+                            System.out.print("("+tebakan+" < ?) \n");
+                            if(percobaan==5){
+                                System.out.println("5 Tebakan, dan Kamu Gagal! Angka Misteri Adalah "+kunci); } }
+                        else if(tebakan-kunci>0){
+                            akurasi = ((double)kunci/tebakan)*100;
+                            System.out.printf("(%.4f%%) | ", akurasi);
+                            System.out.print("("+tebakan+" > ?) \n");
+                            if(percobaan==5){
+                                System.out.println("5 Tebakan, dan Kamu Gagal! Angka Misteri Adalah "+kunci); } }
+                        else {
+                            System.out.println("Selamat, Angka Misteri Sudah Ditemukan, yaitu "+kunci); } }
+                } while(percobaan<5 && tebakan!=kunci); break;
+            case 3 :
+                do {
+                    System.out.print("Batas Percobaan : 3, Silahkan Pilih Bilangan Bulat Antara 1-100 : ");
+                    tebakan = input.nextInt(); double akurasi; percobaan++;
+                    System.out.print("Percobaan "+percobaan+"/3 | ");
+                    if(percobaan<=3){
+                        if(tebakan-kunci<0){
+                            akurasi = ((double)tebakan/kunci)*100;
+                            System.out.printf("(%.4f%%) | ", akurasi);
+                            System.out.print("("+tebakan+" < ?) \n");
+                            if(percobaan==3){
+                                System.out.println("3 Tebakan, dan Kamu Gagal! Angka Misteri Adalah "+kunci); } }
+                        else if(tebakan-kunci>0){
+                            akurasi = ((double)kunci/tebakan)*100;
+                            System.out.printf("(%.4f%%) | ", akurasi);
+                            System.out.print("("+tebakan+" > ?) \n");
+                            if(percobaan==3){
+                                System.out.println("3 Tebakan, dan Kamu Gagal! Angka Misteri Adalah "+kunci); } }
+                        else{
+                            System.out.println("Selamat, Angka Misteri Adalah, yaitu "+kunci); } }
+                } while(percobaan<3 && tebakan!=kunci); break;
+            case 4 :
+                do {
+                    System.out.print("Batas Percobaan : 2, Silahkan Pilih Bilangan Bulat Antara 1-100 : ");
+                    tebakan = input.nextInt(); double akurasi; percobaan++;
+                    System.out.print("Percobaan "+percobaan+"/2 | ");
+                    if(percobaan<=2){
+                        if(tebakan-kunci<0){
+                            akurasi = ((double)tebakan/kunci)*100;
+                            System.out.printf("(%.4f%%) | ", akurasi);
+                            System.out.print("("+tebakan+" < ?) \n");
+                            if(percobaan==2){
+                                System.out.println("2 Tebakan, dan Kamu Gagal! Angka Misteri Adalah "+kunci); } }
+                        else if(tebakan-kunci>0){
+                            akurasi = ((double)kunci/tebakan)*100;
+                            System.out.printf("(%.4f%%) | ", akurasi);
+                            System.out.print("("+tebakan+" > ?) \n");
+                            if(percobaan==2){
+                                System.out.println("2 Tebakan, dan Kamu Gagal! Angka Misteri Adalah "+kunci); } }
+                        else{
+                            System.out.println("Selamat, Angka Misteri Adalah, yaitu "+kunci); } }
+                } while(percobaan<2 && tebakan!=kunci); break;
+            case 0 : break;
+            default :
+                System.out.println("Silahkan Pilih Menu yang Tersedia!"); }
+    }
+}
